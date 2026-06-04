@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F8DADB">
+<title>Get Buddy — Find, Move, Belong</title>
+<meta property="og:title" content="Get Buddy">
+<meta property="og:description" content="Find your people. Find your place.">
+<link rel="icon" type="image/png" href="logo.png">
+
+<style>
+  :root {
+    --pink: #F8DADB;
+    --pink-soft: #FDEDEE;
+    --ink: #111111;
+    --muted: #6B6B6B;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--pink-soft);
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Soft pink blob backdrop — echoes the welcome screen */
+  .stage {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 24px 48px;
+    overflow: hidden;
+  }
+  .stage::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -45%;
+    transform: translateX(-50%);
+    width: 140vmax;
+    height: 140vmax;
+    background: var(--pink);
+    border-radius: 50%;
+    z-index: 0;
+  }
+
+  .card {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 360px;
+    width: 100%;
+  }
+
+  .logo-circle {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: var(--ink);
+    margin: 0 auto 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 12px 32px rgba(17,17,17,0.18);
+  }
+  .logo-circle svg { width: 48px; height: 48px; }
+
+  .wordmark { height: 38px; margin: 0 auto 8px; display: block; }
+
+  .tagline {
+    font-size: 16px;
+    color: var(--muted);
+    margin: 0 0 36px;
+    font-weight: 500;
+  }
+
+  .stores { display: flex; flex-direction: column; gap: 12px; align-items: center; }
+
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 280px;
+    padding: 14px 22px;
+    background: var(--ink);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: transform .15s ease, box-shadow .15s ease;
+    box-shadow: 0 6px 18px rgba(17,17,17,0.22);
+  }
+  .btn:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(17,17,17,0.28); }
+  .btn svg { width: 22px; height: 22px; flex-shrink: 0; }
+  .btn .sub { font-size: 10px; opacity: .75; font-weight: 500; letter-spacing: .04em; text-transform: uppercase; }
+  .btn .main { font-size: 15px; line-height: 1.1; }
+  .btn .stack { display: flex; flex-direction: column; align-items: flex-start; }
+
+  .footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    padding: 16px;
+  }
+</style>
+</head>
+<body>
+  <main class="stage">
+    <div class="card">
+      <div class="logo-circle" aria-hidden="true">
+        <svg viewBox="0 0 939 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M668.78 215.74C604.55 215.74 538.6 240.58 472.75 289.56L453.91 303.58L413.97 283.47C403.28 278.09 346.29 251.24 274.17 251.24C185.3 251.24 108.17 291.64 56.98 365C20.33 417.52 0.63 476.81 0 536.57V1070.66C0 1075.82 4.18 1079.99 9.33 1079.99H928.93C934.09 1079.99 938.26 1075.81 938.26 1070.66V513.09C938.26 453.28 921.56 395.7 889.96 346.57C835.7 262.21 757.15 215.75 668.76 215.74H668.78ZM369.2 399.99C313.91 455.27 252.08 585.15 252.08 676.21C252.08 750.93 292.44 892.24 445.2 892.24C587.77 892.24 651.59 777.08 651.59 662.94C651.59 548.8 535.26 395.42 534.08 393.88L526 383.35L536.64 375.43C583.61 340.48 628.06 322.76 668.78 322.76C720.22 322.76 765.58 351.01 799.94 404.45C820.41 436.26 831.23 473.83 831.23 513.08V972.95H107.95V537.83C108.35 499.32 121.43 459.69 144.77 426.24C175.8 381.77 220.54 358.27 274.18 358.27C323.96 358.27 364.15 378.22 365.84 379.07L381.99 387.2L369.21 399.99H369.2ZM445.2 785.21C377.25 785.21 359.12 716.7 359.12 676.21C359.12 626.08 396.48 547.22 427.59 499.44C435.45 487.37 444.45 476.1 454.44 465.73L455.5 466.98C462.21 474.9 468.38 483.25 473.95 492.01C502.83 537.4 544.54 616.3 544.54 662.94C544.54 740.64 508.33 785.2 445.19 785.2L445.2 785.21Z" fill="#F6DDE1"/>
+          <path d="M259.71 207.48C305.04 207.48 341.92 170.6 341.92 125.27C341.92 79.94 305.04 43.06 259.71 43.06C214.38 43.06 177.5 79.94 177.5 125.27C177.5 170.6 214.38 207.48 259.71 207.48Z" fill="#F6DDE1"/>
+          <path d="M686.39 164.42C731.72 164.42 768.6 127.54 768.6 82.21C768.6 36.88 731.72 0 686.39 0C641.06 0 604.18 36.88 604.18 82.21C604.18 127.54 641.06 164.42 686.39 164.42Z" fill="#F6DDE1"/>
+        </svg>
+      </div>
+
+      <img class="wordmark" src="logo.png" alt="buddy">
+      <p class="tagline">feel like home, away from home</p>
+
+      <div class="stores">
+        <a id="ios" class="btn" href="https://apps.apple.com/app/buddy-find-move-belong/id6763711663">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 12.04c-.02-2.18 1.78-3.23 1.86-3.28-1.01-1.48-2.59-1.68-3.16-1.7-1.34-.14-2.62.79-3.31.79-.68 0-1.74-.77-2.86-.75-1.47.02-2.83.85-3.59 2.17-1.53 2.66-.39 6.6 1.1 8.76.73 1.06 1.6 2.25 2.74 2.21 1.1-.04 1.52-.71 2.85-.71 1.33 0 1.7.71 2.86.69 1.18-.02 1.93-1.08 2.65-2.14.83-1.22 1.18-2.4 1.2-2.46-.03-.01-2.3-.88-2.34-3.58zM14.94 5.5c.6-.74 1.01-1.76.9-2.78-.87.04-1.94.58-2.57 1.3-.56.64-1.05 1.68-.92 2.68.98.07 1.98-.48 2.59-1.2z"/></svg>
+          <div class="stack"><span class="sub">Download on the</span><span class="main">App Store</span></div>
+        </a>
+        <a id="android" class="btn" href="https://play.google.com/store/apps/details?id=com.buddytechindia.buddy">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.3c-.4.4-.6 1-.6 1.7v16c0 .7.2 1.3.6 1.7l9.1-9.7L3.6 2.3zM14.4 13.1l2.5 2.6-9.6 5.5c-.4.2-.8.2-1.1 0l8.2-8.1zM17.7 8.7l3 1.7c1 .6 1 2 0 2.6l-2.9 1.7-2.8-3 2.7-3zM14.4 11l-8.2-8.1c.4-.1.8-.1 1.2.1l9.5 5.5L14.4 11z"/></svg>
+          <div class="stack"><span class="sub">Get it on</span><span class="main">Google Play</span></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer">© buddy · find, move, belong</div>
+  </main>
+
+<script>
+  var ua = navigator.userAgent || navigator.vendor || window.opera;
+  var iOS     = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+  var android = /android/i.test(ua);
+  if (iOS)     setTimeout(function(){ location.replace(document.getElementById('ios').href); }, 250);
+  if (android) setTimeout(function(){ location.replace(document.getElementById('android').href); }, 250);
+</script>
+</body>
+</html>
