@@ -158,13 +158,19 @@
   var ua = navigator.userAgent || navigator.vendor || window.opera;
   var iOS     = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
   var android = /android/i.test(ua);
+  // Redirect once GA4 has sent the event, or after 1.5s if it never loads
+  // (slow network, blocker), so visits on slow phones still get counted.
+  function redirectAfterEvent(eventName, url) {
+    var done = false;
+    var go = function(){ if (!done) { done = true; location.replace(url); } };
+    gtag('event', eventName, {transport_type:'beacon', event_callback: go});
+    setTimeout(go, 1500);
+  }
   if (iOS) {
-    gtag('event','redirect_ios_auto',{transport_type:'beacon'});
-    setTimeout(function(){ location.replace(document.getElementById('ios').href); }, 400);
+    redirectAfterEvent('redirect_ios_auto', document.getElementById('ios').href);
   }
   if (android) {
-    gtag('event','redirect_android_auto',{transport_type:'beacon'});
-    setTimeout(function(){ location.replace(document.getElementById('android').href); }, 400);
+    redirectAfterEvent('redirect_android_auto', document.getElementById('android').href);
   }
 </script>
 </body>
